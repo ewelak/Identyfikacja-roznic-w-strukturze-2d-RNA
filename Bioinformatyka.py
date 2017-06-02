@@ -1,4 +1,3 @@
-
 string = ".(((...(((.........)))..((..(((......)))..((((.......)))).(((...)))...)).(((..(((.........)))))).))).."
 string = "((...))...(((.....))).....((((....)).....((.....))))"
 string = "((((.....)).((...))....))((((((....))...((...))))...((...))...(((.......)))))"
@@ -7,7 +6,7 @@ string = "((((.....)).((...))....))((((((....))...((...))))...((...))...(((.....
 tablica = []
 
 
-def koniec(napis):   #= 1 gdy nie ma ju≈º innych struktur
+def koniec(napis):   #= 1 gdy nie ma juø innych struktur
     for znak in napis:
         if znak=="(":
             return 0
@@ -22,14 +21,14 @@ def zamien(napis, drzewoarg):
     while i < (len(napis)):
         if (napis[i]!="(" and napis[i]!=")"):
             p=i
-            rzƒÖd=1
+            rzπd=1
             while ((i<len(napis)) and (napis[i]!="(" and napis[i]!=")")) :
                 if napis[i]!=".":
-                    rzƒÖd+=1
+                    rzπd+=1
                 i+=1
 
             i-=1
-            lista.append([p, i, rzƒÖd])
+            lista.append([p, i, rzπd])
 
         i+=1
 
@@ -66,9 +65,9 @@ def zamien(napis, drzewoarg):
         znak = str(petla[2])
         zmiana+=znak
         if (i<len(lista2)-1):
-            nastƒôpna = lista2[i + 1]
-            zmiana+=napis[petla[1]+1:(nastƒôpna[0])]
-            for znak in (napis[petla[1]+1:(nastƒôpna[0])]):
+            nastÍpna = lista2[i + 1]
+            zmiana+=napis[petla[1]+1:(nastÍpna[0])]
+            for znak in (napis[petla[1]+1:(nastÍpna[0])]):
                 if (znak != "." and znak != "(" and znak != ")"):
                     drzewo.append([int(znak)])
         else:
@@ -89,7 +88,7 @@ zamien(zamien(string, []), [])
 def liczba(char):
     return format(ord(char), "x")
 
-def upro≈õƒá(napis):
+def uproúÊ(napis):
     tablica = []
     drzewo = []
     while(koniec(napis)!=1):
@@ -104,13 +103,13 @@ def upro≈õƒá(napis):
 
 
 print("==========")
-x = upro≈õƒá(string)
+x = uproúÊ(string)
 
 print("===========================================")
 print("napis: ", x[0])
 print("drzewo: ", x[1])
 
-class wierzcho≈Çek:
+class wierzcho≥ek:
     etykieta = ""
     dzieci = []
     def __init__(self, et, dz):
@@ -120,15 +119,15 @@ class wierzcho≈Çek:
 
 
 class drzewo:
-    korze≈Ñ = [] # lista wierzcho≈Çk√≥w
+    korzeÒ = [] # lista wierzcho≥kÛw
     def _init_(self, k):
-        korze≈Ñ = k
+        korzeÒ = k
 
 
 
 def drzewo(drzewo):
 
-    # na wej≈õciu takie co≈õ: [[1, 1, 1, 1, 1, 1], [3, 3, [1], [1]], [[3], 4]]
+    # na wejúciu takie coú: [[1, 1, 1, 1, 1, 1], [3, 3, [1], [1]], [[3], 4]]
 
     nowedrzewo = drzewo
     nowedrzewo2=drzewo
@@ -140,19 +139,19 @@ def drzewo(drzewo):
         for j1 in range(0, len(nowedrzewo[i])):
             j=nowedrzewo[i][j1]
 
-            #jesli jest listƒÖ
+            #jesli jest listπ
             if(type(j)!=type([])):
                 lista = []
                 for k in range(idx, idx + j):
                     lista.append(poprzednie[k])
-                w = wierzcho≈Çek(j, lista)
+                w = wierzcho≥ek(j, lista)
                 nowedrzewo2[i][j1] = w;
                 idx += j
             else:
                 d=1
                 tmpj=j[0]
-                w = wierzcho≈Çek(j, [])
-                nowedrzewo2[i][j1]=wierzcho≈Çek(j[0], []);
+                w = wierzcho≥ek(j, [])
+                nowedrzewo2[i][j1]=wierzcho≥ek(j[0], []);
     return nowedrzewo2[-1]
 
 
